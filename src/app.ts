@@ -13,5 +13,5 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/chairs', chairRoutes);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server is running on port ${port}🚀`);
 });
