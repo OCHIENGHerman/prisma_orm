@@ -38,3 +38,9 @@ model User {
   posts   Post[]
   profile Profile?
 }
+
+model Chair {
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String?
+}
