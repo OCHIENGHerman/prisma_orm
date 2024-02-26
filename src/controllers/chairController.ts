@@ -14,7 +14,8 @@ export const getChairById = async (req: Request, res: Response) => {
 }
 
 export const createChair = async (req: Request, res: Response) => {
-    const chair = await prisma.chair.create({ data: req.body });
+    const {email, name } = req.body;
+    const chair = await prisma.chair.create({ data: { email, name} });
     res.json(chair);
 }
 
