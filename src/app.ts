@@ -47,6 +47,10 @@ app.get('/users', async (req: Request, res: Response) => {
   res.send(users)
 })
 
+app.get('/chairs', async (req: Request, res: Response) => {
+  const chairs = await prisma.chair.findMany()
+  res.send(chairs)
+})
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });

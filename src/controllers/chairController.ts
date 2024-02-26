@@ -3,12 +3,12 @@ import { PrismaClient } from ".prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getUsers = async (req: Request, res: Response) => {
-    try {
-      const users = await prisma.user.findMany();
-      res.json();
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Internal Server Error');
-    }
-  };
+export const getAllUsers = async (req: Request, res: Response) => {
+    const users = await prisma.user.findMany();
+    res.json(users);
+};
+
+export const getAllChairs = async (req: Request, res: Response) => {
+    const chairs = await prisma.chair.findMany();
+    res.json(chairs);
+}
