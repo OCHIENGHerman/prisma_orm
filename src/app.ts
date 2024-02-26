@@ -42,6 +42,11 @@ const prisma = new PrismaClient()
 //     process.exit(1)
 //   })
 
+app.get('/users', async (req: Request, res: Response) => {
+  const users = await prisma.user.findMany()
+  res.send(users)
+})
+
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
