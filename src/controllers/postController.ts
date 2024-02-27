@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
-import { validatePostData } from 'src/validations/postValidation';
+import { validatePostData } from '../validations/postValidation';
 
 const prisma = new PrismaClient();
 
