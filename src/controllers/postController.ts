@@ -13,3 +13,20 @@ export const getPostById = async (req: Request, res: Response) => {
     const post = await prisma.post.findUnique({ where: {id: postId } });
     res.json(post);
 }
+
+export const createPost = async (req: Request, res: Response) => {
+    const post = await prisma.post.create({ data: req.body  });
+    res.json(post);
+}
+
+export const updatePost = async (req: Request, res: Response) => {
+    const postId = Number(req.params.id);
+    const post = await prisma.post.update({ where: { id: postId }, data: req.body });
+    res.json(post);
+}
+
+export const deletePost = async (req: Request, res: Response) => {
+    const postId = Number(req.params.id);
+    const post = await prisma.post.delete({ where: { id: postId } });
+    res.json(post);
+}
