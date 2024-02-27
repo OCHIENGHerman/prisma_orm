@@ -14,6 +14,15 @@ export const getPostById = async (req: Request, res: Response) => {
     res.json(post);
 }
 
+export const getPostsByUserId = async (req: Request, res: Response) => {
+    const userId = Number(req.params.userId);
+    const posts = await prisma.post.findMany({
+        where: { authorId: userId },
+        include: { author: true },
+    });
+    res.json(posts);
+}
+
 export const createPost = async (req: Request, res: Response) => {
     const post = await prisma.post.create({ data: req.body  });
     res.json(post);
