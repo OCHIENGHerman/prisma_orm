@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
+import { validatePostData } from 'src/validations/postValidation';
 
 const prisma = new PrismaClient();
 
@@ -24,8 +25,17 @@ export const getPostsByUserId = async (req: Request, res: Response) => {
 }
 
 export const createPost = async (req: Request, res: Response) => {
-    const post = await prisma.post.create({ data: req.body  });
-    res.json(post);
+    if (!validatePostData(req, res)) {
+        return;
+    }
+    try {
+        const post = await prisma.post.create({ data: req.body  });
+        res.json(post);
+    }
+    catch (error) {
+        console.error('Error creating post:', error);
+        res.status(500).json({ error: "Failed to create post" });
+    }
 }
 
 export const updatePost = async (req: Request, res: Response) => {
