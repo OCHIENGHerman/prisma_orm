@@ -7,11 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-datasource dev_db {
-  provider = "postgresql"
-  url      = env("DEVELOPMENT_URL")
-}
-
 model Post {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
