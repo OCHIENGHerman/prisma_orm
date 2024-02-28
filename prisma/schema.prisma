@@ -5,7 +5,6 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Post {
@@ -37,5 +36,15 @@ model User {
 model Chair {
   id    Int     @id @default(autoincrement())
   email String  @unique
+  name  String?
+}
+
+model Tables {
+  id    Int     @id @default(autoincrement())
+  name  String?
+}
+
+model Stools {
+  id    Int     @id @default(autoincrement())
   name  String?
 }
