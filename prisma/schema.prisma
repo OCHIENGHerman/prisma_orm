@@ -7,9 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-datasource development {
+datasource dev_db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DEVELOPMENT_URL")
 }
 
 model Post {
