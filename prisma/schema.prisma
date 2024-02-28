@@ -38,3 +38,13 @@ model Chair {
   email String  @unique
   name  String?
 }
+
+model Tables {
+  id    Int     @id @default(autoincrement())
+  name  String?
+}
+
+model Stools {
+  id    Int     @id @default(autoincrement())
+  name  String?
+}
