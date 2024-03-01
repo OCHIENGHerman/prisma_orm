@@ -37,11 +37,15 @@ model Chair {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
+  color String?
+  pieces Int?
 }
 
 model Tables {
   id    Int     @id @default(autoincrement())
   name  String?
+  color String?
+  pieces Int?
 }
 
 model Stools {
