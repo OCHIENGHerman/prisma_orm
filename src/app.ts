@@ -3,6 +3,7 @@ import chairRoutes from './routes/chairRoutes';
 import userRoutes from './routes/userRoutes';
 import postRoutes from './routes/postRoutes';
 import profileRoutes from './routes/profileRoutes';
+import twilioRoutes from './routes/twilioRoutes';
 
 const app = express();
 const port: number = 3000;
@@ -17,6 +18,7 @@ app.use('/chairs', chairRoutes);
 app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
 app.use('/profile', profileRoutes);
+app.use('/twilio', twilioRoutes);
 
 
 app.listen(port, () => {
